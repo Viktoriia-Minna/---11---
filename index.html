@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <h1>Таймер на 1 годину</h1>
+        <div class="timer" id="first-timer">01:00:00</div>
+        <p class="message hidden" id="first-message">Залишилось менше половини часу!</p>
+        <button id="first-button" class="button primary" type="button">Почати відлік</button>
+      </section>
+
+      <section class="card accent">
+        <h2>Таймер на 30 секунд</h2>
+        <div class="timer small" id="second-timer">00:30.000</div>
+        <div class="pulse-ring" id="second-ring" aria-hidden="true"></div>
+    
+        <button id="second-button" class="button secondary" type="button">Почати відлік</button>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>

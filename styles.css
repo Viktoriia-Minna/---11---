@@ -1,0 +1,172 @@
+:root {
+  --bg: #f3f6ff;
+  --card: #ffffff;
+  --primary: #4f46e5;
+  --primary-dark: #3f3ac9;
+  --secondary: #ef4444;
+  --secondary-dark: #dc2626;
+  --accent: #fbbf24;
+  --text: #172033;
+  --muted: #58627a;
+  --shadow: 0 18px 45px rgba(79, 70, 229, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+  width: min(100%, 980px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 32px 20px;
+}
+
+.card {
+  position: relative;
+  padding: 28px 24px;
+  border-radius: 24px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  text-align: center;
+  overflow: hidden;
+}
+
+.card.accent {
+  background: linear-gradient(180deg, #fffaf1 0%, #ffffff 100%);
+}
+
+.label {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+h1,
+h2 {
+  margin: 0 0 20px;
+}
+
+.timer {
+  margin-bottom: 16px;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer.small {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.message {
+  min-height: 28px;
+  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.message.hidden {
+  visibility: hidden;
+}
+
+.message.alert {
+  color: var(--secondary-dark);
+}
+
+.message.warning {
+  color: #d97706;
+}
+
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.button.primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.28);
+}
+
+.button.primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.button.secondary {
+  background: var(--secondary);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.28);
+}
+
+.button.secondary:hover:not(:disabled) {
+  background: var(--secondary-dark);
+}
+
+.pulse-ring {
+  position: absolute;
+  inset: 24% 18%;
+  border-radius: 50%;
+  border: 3px solid rgba(239, 68, 68, 0.24);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pulse-ring.active {
+  animation: pulse-ring 0.6s ease-out infinite;
+  opacity: 1;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .card {
+    padding: 22px 18px;
+  }
+
+  .timer {
+    letter-spacing: 0.05em;
+  }
+}
